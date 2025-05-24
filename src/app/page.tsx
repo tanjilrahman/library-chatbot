@@ -33,6 +33,11 @@ export default function Home() {
         throw new Error(data.message || "Search failed");
       }
 
+      if (!data.results) {
+        setError(data.message);
+        return;
+      }
+
       setSearchResult(data.results);
     } catch (err) {
       setError(err instanceof Error ? err.message : "An error occurred");

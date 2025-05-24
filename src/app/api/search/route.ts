@@ -24,10 +24,10 @@ export async function POST(request: Request) {
       }
     });
 
-    if (searchResults.length === 0) {
+    if (!searchResults.length) {
       return NextResponse.json({
-        message: "No books found",
-        results: [],
+        message: "No books found matching your search criteria",
+        results: null,
       });
     }
 
